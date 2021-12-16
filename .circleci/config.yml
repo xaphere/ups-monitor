@@ -1,7 +1,7 @@
 # .circleci/config.yml
 version: 2.1
 jobs:
-  upload:
+  build-and-push:
     machine:
       image: ubuntu-2004:202101-01
     resource_class: arm.medium
@@ -14,4 +14,4 @@ jobs:
 workflows:
   build:
     jobs:
-      - build-medium
+      - build-and-push
