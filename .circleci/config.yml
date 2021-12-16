@@ -1,0 +1,17 @@
+# .circleci/config.yml
+version: 2.1
+jobs:
+  upload:
+    machine:
+      image: ubuntu-2004:202101-01
+    resource_class: arm.medium
+    steps:
+      - checkout
+      - run: |
+          echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+      - run: docker build -t xaphere/ups-monitor:arm .
+      - run: docker push xaphere/ups-monitor:arm
+workflows:
+  build:
+    jobs:
+      - build-medium
