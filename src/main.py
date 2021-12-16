@@ -30,7 +30,7 @@ def update_ups_metrics():
     # print("PSU Voltage:   {:6.3f} V".format(bus_voltage + shunt_voltage))
     # print("Shunt Voltage: {:9.6f} V".format(shunt_voltage))
     
-    log.dbg("",load_voltage="{:.3f}V".format(bus_voltage), current="{:.6f}A".format(
+    log.msg("",load_voltage="{:.3f}V".format(bus_voltage), current="{:.6f}A".format(
         current / 1000), power="{:.3f}W".format(power), percent="{:.1f}%".format(p))
 
     ups_load_voltage.set("{:.3f}".format(bus_voltage))
